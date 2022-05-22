@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Javascript Calculator</title>
+
+  <style>
+    #calculation {
+      min-height: 50px;
+    }
+
+    input[type=button] {
+      font-size: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="display-1 text-center">HTML Javascript Calculator</h1>
+  <div class="container mt-5 p-5 border shadow">
+    <div class="row">
+      <div class="col-12-lg">
+        <input type="text" name="calculation" id="calculation" class="form-control">
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-3 gap-2 d-grid">
+        <input type="button" class="btn btn-primary" onclick="userClickButton('1')" value="1" id="one">
+      </div>
+      <div class="col-3 gap-2 d-grid">
+        <input type="button" class="btn btn-primary" onclick="userClickButton('2')" value="2" id="two">
+      </div>
+      <div class="col-3 gap-2 d-grid">
+        <input type="button" class="btn btn-primary" onclick="userClickButton('3')" value="3" id="three">
+      </div>
+      <div class="col-3 gap-2 d-grid">
+        <input type="button" class="btn btn-success" onclick="userClickButton('+')" value="+" id="add">
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-3 gap-2 d-grid">
+        <input type="button" class="btn btn-primary" onclick="userClickButton('4')" value="4" id="four">
+      </div>
+      <div class="col-3 gap-2 d-grid">
+        <input type="button" class="btn btn-primary" onclick="userClickButton('5')" value="5" id="five">
+      </div>
+      <div class="col-3 gap-2 d-grid">
+        <input type="button" class="btn btn-primary" onclick="userClickButton('6')" value="6" id="six">
+      </div>
+      <div class="col-3 gap-2 d-grid">
+        <input type="button" class="btn btn-success" onclick="userClickButton('-')" value="-" id="minus">
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-3 gap-2 d-grid">
+        <input type="button" class="btn btn-primary" onclick="userClickButton('7')" value="7" id="seven">
+      </div>
+      <div class="col-3 gap-2 d-grid">
+        <input type="button" class="btn btn-primary" onclick="userClickButton('8')" value="8" id="eight">
+      </div>
+      <div class="col-3 gap-2 d-grid">
+        <input type="button" class="btn btn-primary" onclick="userClickButton('9')" value="9" id="nine">
+      </div>
+      <div class="col-3 gap-2 d-grid">
+        <input type="button" class="btn btn-success" onclick="userClickButton('*')" value="*" id="multiply">
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-3 gap-2 d-grid">
+        <input type="button" class="btn btn-primary" onclick="userClickButton('.')" value="." id="dot">
+      </div>
+      <div class="col-3 gap-2 d-grid">
+        <input type="button" class="btn btn-primary" onclick="userClickButton('0')" value="0" id="zero">
+      </div>
+      <div class="col-3 gap-2 d-grid">
+        <input type="button" class="btn btn-primary" onclick="calculateValue()" value="=" id="equal-to">
+      </div>
+      <div class="col-3 gap-2 d-grid">
+        <input type="button" class="btn btn-success" onclick="userClickButton('/')" value="/" id="divide">
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-lg-12  gap-2 d-grid">
+        <input type="button" class="btn btn-danger" onclick="clearInput()" value="C" id="clear">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var input_box = document.getElementById('calculation');
+
+function userClickButton(input) {
+  var oldInput = input_box.value;
+  var newInput = oldInput+""+input;
+  input_box.value = newInput; 
+}
+
+function calculateValue() {
+  var input = input_box.value;
+  var result = eval(input);
+  input_box.value = result;
+}
+
+function clearInput() {
+  input_box.value = "";
+}
+  </script>
+</body>
+</html>
